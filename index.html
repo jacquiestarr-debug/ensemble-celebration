@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duke Ellington Theatre Ensemble · Class of 2026 Celebration</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --gold: #c9a84c;
+    --gold-light: #f0d078;
+    --crimson: #8b1a1a;
+    --cream: #faf6ee;
+    --text: #2a2a2a;
+    --muted: #6b6b6b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; }
+
+  /* HEADER */
+  .header { background: var(--navy); position: relative; overflow: hidden; padding: 70px 20px 90px; text-align: center; }
+  .header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(201,168,76,0.04) 40px, rgba(201,168,76,0.04) 80px); }
+  .header::after { content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; background: radial-gradient(ellipse at center, rgba(201,168,76,0.13) 0%, transparent 70%); pointer-events: none; }
+  .pennants { position: absolute; top: 0; left: 0; right: 0; height: 60px; display: flex; justify-content: center; overflow: hidden; }
+  .pennant { width: 50px; height: 60px; clip-path: polygon(0 0, 100% 0, 50% 100%); animation: sway 3s ease-in-out infinite; }
+  .pennant:nth-child(odd) { background: var(--crimson); }
+  .pennant:nth-child(even) { background: var(--gold); }
+  .pennant:nth-child(3n) { background: #0d3b6e; }
+  .pennant:nth-child(2){animation-delay:.3s}.pennant:nth-child(3){animation-delay:.6s}
+  .pennant:nth-child(4){animation-delay:.9s}.pennant:nth-child(5){animation-delay:1.2s}
+  .pennant:nth-child(6){animation-delay:1.5s}.pennant:nth-child(7){animation-delay:1.8s}
+  .pennant:nth-child(8){animation-delay:2.1s}.pennant:nth-child(9){animation-delay:2.4s}
+  .pennant:nth-child(10){animation-delay:2.7s}.pennant:nth-child(11){animation-delay:3.0s}
+  @keyframes sway { 0%,100%{transform:rotate(-2deg);}50%{transform:rotate(2deg);} }
+
+  .header-eyebrow { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 700; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 5px 18px; border-radius: 2px; margin-bottom: 20px; position: relative; z-index: 1; }
+  .header-school { font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; position: relative; z-index: 1; font-weight: 600; }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 6.5vw, 68px); font-weight: 900; color: #fff; line-height: 1.05; position: relative; z-index: 1; text-shadow: 3px 3px 0 rgba(0,0,0,0.35); }
+  .header h1 em { font-style: italic; color: var(--gold-light); }
+  .header-class { display: inline-block; margin-top: 18px; background: rgba(255,255,255,0.08); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); font-family: 'Playfair Display', serif; font-style: italic; font-size: 20px; padding: 8px 28px; border-radius: 40px; position: relative; z-index: 1; }
+
+  /* DETAILS BAND */
+  .details-band { background: var(--gold); display: flex; justify-content: center; flex-wrap: wrap; }
+  .detail-item { padding: 16px 28px; text-align: center; border-right: 1px solid rgba(26,39,68,0.18); display: flex; flex-direction: column; gap: 3px; }
+  .detail-item:last-child { border-right: none; }
+  .detail-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); opacity: .55; font-weight: 700; }
+  .detail-value { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--navy); }
+
+  /* MAIN */
+  .main { max-width: 780px; margin: 0 auto; padding: 60px 24px; }
+
+  /* INVITE TEXT */
+  .invite-text { text-align: center; margin-bottom: 48px; }
+  .invite-text::before, .invite-text::after { content: '✦'; color: var(--gold); font-size: 22px; display: block; margin-bottom: 18px; }
+  .invite-text p { font-family: 'Libre Baskerville', serif; font-size: 16.5px; line-height: 1.95; color: var(--muted); max-width: 580px; margin: 0 auto 16px; }
+  .invite-text strong { color: var(--navy); font-weight: 700; }
+  .invite-text em { color: var(--crimson); font-style: italic; }
+
+  /* LOGISTICS */
+  .logistics-box { background: var(--navy); border-radius: 6px; padding: 36px 40px; margin: 40px 0; color: #fff; position: relative; overflow: hidden; }
+  .logistics-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--gold-light); margin-bottom:24px; }
+  .logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .logistics-item { display: flex; gap: 12px; align-items: flex-start; }
+  .logistics-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .logistics-item-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+  .logistics-item-value { font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.65; }
+  .logistics-item-value a { color: var(--gold-light); text-decoration: none; }
+  .access-code { display:inline-block; background:var(--gold); color:var(--navy); font-weight:700; font-size:18px; letter-spacing:4px; padding:4px 16px; border-radius:3px; margin-top:5px; }
+  .contact-bar { margin-top:22px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+
+  /* DIVIDER */
+  .divider { display:flex; align-items:center; gap:16px; margin:40px 0; }
+  .divider-line { flex:1; height:1px; background:linear-gradient(to right, transparent, var(--gold), transparent); }
+
+  /* ATTENDANCE TOGGLE */
+  .attendance-toggle { display: flex; margin-bottom: 28px; border: 1.5px solid #e0d8c8; border-radius: 4px; overflow: hidden; }
+  .toggle-btn { flex: 1; padding: 14px 12px; background: var(--cream); border: none; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; cursor: pointer; transition: background .2s, color .2s; color: var(--muted); text-align: center; border-right: 1.5px solid #e0d8c8; }
+  .toggle-btn:last-child { border-right: none; }
+  .toggle-btn.active-yes { background: var(--navy); color: var(--gold-light); }
+  .toggle-btn.active-no { background: var(--crimson); color: #fff; }
+  .toggle-btn.active-scholar { background: #2a5c2a; color: #c8f0c8; }
+
+  .decline-note { background: rgba(139,26,26,0.06); border: 1px solid rgba(139,26,26,0.2); border-radius: 4px; padding: 16px 20px; margin-bottom: 24px; font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 14px; color: var(--crimson); line-height: 1.7; }
+
+  /* FORM */
+  .form-header { text-align:center; margin-bottom:36px; }
+  .form-header h2 { font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:var(--navy); margin-bottom:8px; }
+  .form-header p { color:var(--muted); font-size:15px; }
+  .form-card { background:#fff; border:1px solid rgba(201,168,76,0.3); border-radius:4px; padding:40px; box-shadow:0 4px 40px rgba(26,39,68,0.06); }
+  .field-group { margin-bottom:26px; }
+  label { display:block; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+  input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea { width:100%; padding:12px 16px; border:1.5px solid #e0d8c8; border-radius:3px; font-family:'DM Sans',sans-serif; font-size:15px; color:var(--text); background:var(--cream); transition:border-color .2s, box-shadow .2s; outline:none; }
+  input:focus, textarea:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,76,0.15); background:#fff; }
+  textarea { resize:vertical; min-height:80px; }
+  .row-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+  /* GRAD BOX */
+  .grad-box { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.3); border-radius:4px; padding:22px; margin-bottom:26px; }
+  .grad-box-title { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--navy); margin-bottom:16px; }
+
+  /* SERVING NOTE */
+  .serving-note { background: rgba(26,39,68,0.05); border-left: 3px solid var(--navy); padding: 12px 16px; border-radius: 0 4px 4px 0; margin-bottom: 24px; font-size: 13.5px; color: var(--navy); line-height: 1.6; }
+  .serving-note strong { font-weight: 700; }
+
+  /* CATEGORIES */
+  .category-section { background:rgba(201,168,76,0.06); border-left:3px solid var(--gold); border-radius:0 4px 4px 0; padding:24px; margin-bottom:22px; }
+  .category-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+  .category-subtitle { font-size:13px; color:var(--muted); margin-bottom:16px; font-style:italic; }
+  .checkbox-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:10px; }
+  .checkbox-item { display:flex; align-items:center; gap:10px; cursor:pointer; }
+  .checkbox-item input[type="checkbox"] { width:17px; height:17px; accent-color:var(--gold); cursor:pointer; flex-shrink:0; }
+  .checkbox-item span { font-size:14px; color:var(--text); }
+  .checkbox-item.claimed { cursor:not-allowed; opacity:.4; }
+  .checkbox-item.claimed input { cursor:not-allowed; }
+  .checkbox-item.claimed span { text-decoration:line-through; }
+  .claimed-badge { font-size:10px; font-weight:700; background:#e0d8c8; color:var(--muted); padding:1px 6px; border-radius:10px; white-space:nowrap; }
+  .other-field { margin-top:14px; }
+
+  /* SUBMIT */
+  .submit-area { margin-top:32px; text-align:center; }
+  .btn-submit { background:var(--navy); color:var(--gold-light); font-family:'DM Sans',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; padding:16px 52px; border:none; border-radius:3px; cursor:pointer; transition:background .2s, transform .15s, box-shadow .2s; box-shadow:0 4px 20px rgba(26,39,68,0.2); }
+  .btn-submit:hover { background:var(--crimson); transform:translateY(-2px); box-shadow:0 8px 28px rgba(139,26,26,0.3); }
+  .btn-submit:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+  .btn-submit:active { transform:translateY(0); }
+  .submitting-msg { margin-top:14px; font-size:13px; color:var(--muted); font-style:italic; display:none; }
+
+  /* SUCCESS */
+  .success-state { display:none; text-align:center; padding:60px 40px; }
+  .success-state.visible { display:block; }
+  .success-state h3 { font-family:'Playfair Display',serif; font-size:26px; color:var(--navy); margin-bottom:12px; }
+  .success-state p { color:var(--muted); font-size:16px; line-height:1.75; }
+
+  /* RESPONSES */
+  .responses-section { margin-top:52px; border-top:2px solid var(--gold); padding-top:36px; }
+  .responses-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px; }
+  .responses-header h3 { font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); }
+  .count-badge { background:var(--navy); color:var(--gold); font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:1px; }
+  .response-card { background:#fff; border:1px solid #e8e0d0; border-radius:4px; padding:18px 22px; margin-bottom:10px; display:grid; grid-template-columns:1fr auto; gap:12px; animation:fadeIn .3s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);} }
+  .response-name { font-family:'Playfair Display',serif; font-size:16px; color:var(--navy); font-weight:700; }
+  .response-details { font-size:13px; color:var(--muted); margin-top:4px; line-height:1.65; }
+  .response-tag { display:inline-block; background:rgba(201,168,76,0.15); color:var(--navy); font-size:11px; font-weight:600; padding:2px 8px; border-radius:2px; margin:2px 2px 0 0; }
+  .response-tag.decline-tag { background:rgba(139,26,26,0.1); color:var(--crimson); }
+  .loading-responses { text-align:center; padding:24px; color:var(--muted); font-style:italic; font-size:14px; }
+
+  /* FOOTER */
+  .footer { background:var(--navy); color:rgba(255,255,255,0.5); text-align:center; padding:28px 20px; font-size:13px; margin-top:80px; line-height:2.2; }
+  .footer strong { color:var(--gold); }
+
+  @media(max-width:600px){
+    .row-2,.logistics-grid{grid-template-columns:1fr;}
+    .details-band{flex-direction:column;}
+    .detail-item{border-right:none;border-bottom:1px solid rgba(26,39,68,0.15);}
+    .form-card,.logistics-box{padding:24px 18px;}
+    .checkbox-grid{grid-template-columns:1fr 1fr;}
+    .attendance-toggle{flex-direction:column;}
+    .toggle-btn{border-right:none;border-bottom:1.5px solid #e0d8c8;}
+    .toggle-btn:last-child{border-bottom:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="pennants">
+    <div class="pennant"></div><div class="pennant"></div><div class="pennant"></div>
+    <div class="pennant"></div><div class="pennant"></div><div class="pennant"></div>
+    <div class="pennant"></div><div class="pennant"></div><div class="pennant"></div>
+    <div class="pennant"></div><div class="pennant"></div><div class="pennant"></div>
+    <div class="pennant"></div><div class="pennant"></div><div class="pennant"></div>
+    <div class="pennant"></div><div class="pennant"></div><div class="pennant"></div>
+  </div>
+  <div class="header-eyebrow">End-of-Year Celebration</div>
+  <p class="header-school">Duke Ellington School of the Arts · Theatre Ensemble</p>
+  <h1>The Curtain Calls.<br><em>The Next Act Begins.</em></h1>
+  <span class="header-class">Class of 2026</span>
+</div>
+
+<!-- ── DETAILS BAND ── -->
+<div class="details-band">
+  <div class="detail-item">
+    <span class="detail-label">Date</span>
+    <span class="detail-value">Saturday, May 30</span>
+  </div>
+  <div class="detail-item">
+    <span class="detail-label">Time</span>
+    <span class="detail-value">3:00 – 5:00 PM</span>
+  </div>
+  <div class="detail-item">
+    <span class="detail-label">Venue</span>
+    <span class="detail-value">Rooftop · NE Washington DC</span>
+  </div>
+  <div class="detail-item">
+    <span class="detail-label">Dress</span>
+    <span class="detail-value">College Gear</span>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <div class="invite-text">
+    <p>
+      Four years. Countless rehearsals. One extraordinary ensemble.
+      <br><br>
+      The families of the <strong>Duke Ellington School of the Arts Theatre Ensemble</strong>
+      are gathering to celebrate our <em>Class of 2026</em> as they take their final bow
+      at Ellington and step boldly into their next act on campuses and stages across the country.
+    </p>
+    <p>
+      This is a community celebration, hosted by our Ensemble families,
+      for our Ensemble families. Come in your <strong>college gear</strong>,
+      bring a dish to share, and let's send our scholars off the right way
+      with great food, good people, and a rooftop view.
+    </p>
+  </div>
+
+  <!-- ── LOGISTICS ── -->
+  <div class="logistics-box">
+    <div class="logistics-title">Location, Access and Day-of Details</div>
+    <div class="logistics-grid">
+      <div class="logistics-item">
+        <div class="logistics-icon">&#x1F3E0;</div>
+        <div>
+          <div class="logistics-item-label">Address</div>
+          <div class="logistics-item-value">
+            40 Patterson Street NE<br>Washington, DC 20002<br>
+            <span style="font-size:12px;opacity:.6;">Celebration is on the Rooftop</span>
+          </div>
+        </div>
+      </div>
+      <div class="logistics-item">
+        <div class="logistics-icon">&#x1F687;</div>
+        <div>
+          <div class="logistics-item-label">Metro Access</div>
+          <div class="logistics-item-value">
+            <strong style="color:#fff;">NoMa–Gallaudet U</strong> Station<br>
+            Approx. 2 blocks walking<br>
+            <span style="font-size:12px;opacity:.6;">Red Line</span>
+          </div>
+        </div>
+      </div>
+      <div class="logistics-item">
+        <div class="logistics-icon">&#x1F697;</div>
+        <div>
+          <div class="logistics-item-label">Parking</div>
+          <div class="logistics-item-value">
+            Street parking available nearby<br>
+            Parking garages and lots in the area
+          </div>
+        </div>
+      </div>
+      <div class="logistics-item">
+        <div class="logistics-icon">&#x1F511;</div>
+        <div>
+          <div class="logistics-item-label">Building Entry Code</div>
+          <div class="logistics-item-value">
+            Enter this code at the door:
+            <div><span class="access-code">101</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="logistics-item">
+        <div class="logistics-icon">&#x1F6CE;&#xFE0F;</div>
+        <div>
+          <div class="logistics-item-label">Getting to the Rooftop</div>
+          <div class="logistics-item-value">
+            Check in with the <strong style="color:#fff;">concierge</strong> in the lobby and they will direct you up to the rooftop where the celebration is held.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-bar">
+      <div class="logistics-icon">&#x1F4DE;</div>
+      <div>
+        <div class="logistics-item-label" style="color:var(--gold);">Day-of Contact</div>
+        <div class="logistics-item-value">
+          Jacquie &nbsp;·&nbsp; <a href="tel:+12023914687">(202) 391-4687</a>
+          <span style="font-size:11px;opacity:.5;display:block;margin-top:2px;">For questions or if you have any trouble getting in</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div style="color:var(--gold);font-size:18px;padding:0 16px;flex-shrink:0;">&#x2726;</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ── FORM ── -->
+  <div class="form-header">
+    <h2>RSVP and Sign Up to Bring a Dish</h2>
+    <p>Let us know you're coming and claim your potluck contribution below</p>
+  </div>
+
+  <div class="form-card" id="formCard">
+    <div id="signupForm">
+
+      <!-- ATTENDANCE -->
+      <div class="field-group">
+        <label>Will You Be Attending?</label>
+        <div class="attendance-toggle">
+          <button type="button" class="toggle-btn active-yes" id="btn-yes" onclick="setAttendance('yes')">Yes, I'll Be There!</button>
+          <button type="button" class="toggle-btn" id="btn-scholar" onclick="setAttendance('scholar')">My Scholar Is Attending (Without Me)</button>
+          <button type="button" class="toggle-btn" id="btn-no" onclick="setAttendance('no')">Unable to Attend</button>
+        </div>
+      </div>
+
+      <div class="decline-note" id="declineNote" style="display:none;">
+        We're so sorry you won't be able to join us! Even if you can't attend, please fill in your scholar's information below. We still want to <strong>honor and recognize every member of the Class of 2026.</strong>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="field-group">
+        <label>Your Full Name</label>
+        <input type="text" id="name" placeholder="e.g. Jordan Williams">
+      </div>
+      <div class="row-2">
+        <div class="field-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="you@email.com">
+        </div>
+        <div class="field-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="(202) 555-0100">
+        </div>
+      </div>
+
+      <div class="row-2" id="guestCountRow">
+        <div class="field-group">
+          <label>Adults Attending</label>
+          <input type="number" id="adults" min="1" max="10" value="1">
+        </div>
+        <div class="field-group">
+          <label>Kids Attending</label>
+          <input type="number" id="kids" min="0" max="10" value="0">
+        </div>
+      </div>
+
+      <!-- SCHOLAR -->
+      <div class="grad-box">
+        <div class="grad-box-title">Tell Us About Your Scholar</div>
+        <div class="row-2">
+          <div class="field-group" style="margin-bottom:0">
+            <label>Graduate's Name</label>
+            <input type="text" id="gradName" placeholder="e.g. Alex Johnson">
+          </div>
+          <div class="field-group" style="margin-bottom:0">
+            <label>College / University</label>
+            <input type="text" id="school" placeholder="e.g. Howard University, SCAD, NYU...">
+          </div>
+        </div>
+        <div class="field-group" style="margin-top:18px;margin-bottom:0">
+          <label>Intended Major or Area of Study (Optional)</label>
+          <input type="text" id="major" placeholder="e.g. Theatre Arts, Film, Musical Theatre...">
+        </div>
+      </div>
+
+      <!-- FOOD -->
+      <div id="foodSection">
+        <div class="divider" style="margin:20px 0 28px">
+          <div class="divider-line"></div>
+          <div style="color:var(--gold);font-size:16px;padding:0 16px;flex-shrink:0;">&#x2726;</div>
+          <div class="divider-line"></div>
+        </div>
+
+        <div class="serving-note">
+          <strong>These are just suggestions!</strong> Feel free to bring whatever your heart desires. Cook something homemade or make it easy and order a platter from your favorite spot. Either way, it counts! We're expecting 40-50 guests, so if you can bring enough for 10-15 servings, that's perfect.
+        </div>
+
+        <!-- ENTREES -->
+        <div class="category-section">
+          <div class="category-title">Entrees</div>
+          <p class="category-subtitle">Hearty mains to fuel the celebration</p>
+          <div class="checkbox-grid" id="entreeGrid">
+            <label class="checkbox-item"><input type="checkbox" name="entree" value="Baked Mac and Cheese"><span>Baked Mac and Cheese</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="entree" value="Chicken Tender Platter"><span>Chicken Tender Platter</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="entree" value="BBQ Platter"><span>BBQ Platter</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="entree" value="Pasta Dish"><span>Pasta Dish</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="entree" value="Veggie / Vegan Main"><span>Veggie / Vegan Main</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="entree" value="Wings Platter"><span>Wings Platter</span></label>
+          </div>
+          <div class="other-field">
+            <label>Or bring something else:</label>
+            <input type="text" id="entreeOther" placeholder="What will you bring?">
+          </div>
+        </div>
+
+        <!-- SIDES -->
+        <div class="category-section">
+          <div class="category-title">Sides and Salads</div>
+          <p class="category-subtitle">All the good stuff that goes alongside</p>
+          <div class="checkbox-grid" id="sideGrid">
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Potato Salad"><span>Potato Salad</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Green Salad"><span>Green Salad</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Coleslaw"><span>Coleslaw</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Baked Beans"><span>Baked Beans</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Cornbread"><span>Cornbread</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Rice / Grain Dish"><span>Rice / Grain Dish</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Veggies and Dip"><span>Veggies and Dip</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="side" value="Fruit Salad"><span>Fruit Salad</span></label>
+          </div>
+          <div class="other-field">
+            <label>Or bring something else:</label>
+            <input type="text" id="sideOther" placeholder="What will you bring?">
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="category-section">
+          <div class="category-title">Drinks and Beverages</div>
+          <p class="category-subtitle">We'll have punch covered. Help us round out the drinks table!</p>
+          <div class="checkbox-grid" id="drinkGrid">
+            <label class="checkbox-item"><input type="checkbox" name="drink" value="Red Wine"><span>Red Wine</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="drink" value="White Wine"><span>White Wine</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="drink" value="Water / Sparkling Water"><span>Water / Sparkling Water</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="drink" value="Juice / Sodas (kids)"><span>Juice / Sodas (kids)</span></label>
+          </div>
+          <div class="other-field">
+            <label>Or bring something else:</label>
+            <input type="text" id="drinkOther" placeholder="What will you bring?">
+          </div>
+        </div>
+
+        <!-- DESSERTS -->
+        <div class="category-section">
+          <div class="category-title">Desserts and Treats</div>
+          <p class="category-subtitle">Sweet endings for a sweet milestone</p>
+          <div class="checkbox-grid" id="dessertGrid">
+            <label class="checkbox-item"><input type="checkbox" name="dessert" value="Cake"><span>Cake</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="dessert" value="Cupcakes"><span>Cupcakes</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="dessert" value="Brownies / Bars"><span>Brownies / Bars</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="dessert" value="Cookies"><span>Cookies</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="dessert" value="Ice Cream / Pops"><span>Ice Cream / Pops</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="dessert" value="Pie"><span>Pie</span></label>
+            <label class="checkbox-item"><input type="checkbox" name="dessert" value="Fruit Cobbler"><span>Fruit Cobbler</span></label>
+          </div>
+          <div class="other-field">
+            <label>Or bring something else:</label>
+            <input type="text" id="dessertOther" placeholder="What will you bring?">
+          </div>
+        </div>
+
+        <!-- DIETARY -->
+        <div class="field-group">
+          <label>Dietary Needs / Food Allergies / Notes</label>
+          <textarea id="notes" placeholder="Please share any allergies, dietary restrictions, or anything else we should know."></textarea>
+        </div>
+      </div>
+
+      <div class="submit-area">
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Count Me In!</button>
+        <div class="submitting-msg" id="submittingMsg">Submitting your RSVP, please wait...</div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-state" id="successState">
+      <h3 id="successTitle">The Stage Is Set. You're In!</h3>
+      <p id="successMsg">Thank you for signing up! We are so excited to celebrate with your family.<br><br><strong>Saturday, May 30 · 3-5 PM</strong><br>40 Patterson St NE · Rooftop<br><br>Wear your college gear and come ready to celebrate!</p>
+      <button class="btn-submit" onclick="addAnother()" style="background:var(--gold);color:var(--navy);margin-top:28px;font-size:11px;padding:12px 32px;">Submit Another Response</button>
+    </div>
+  </div>
+
+  <!-- ── RESPONSES ── -->
+  <div class="responses-section" id="responsesSection" style="display:none">
+    <div class="responses-header">
+      <h3>Our Ensemble Community</h3>
+      <span class="count-badge" id="countBadge">0 Responses</span>
+    </div>
+    <div id="responsesList"><div class="loading-responses">Loading responses...</div></div>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <strong>Duke Ellington School of the Arts · Theatre Ensemble · Class of 2026</strong><br>
+  Saturday, May 30, 2026 &nbsp;·&nbsp; 3-5 PM &nbsp;·&nbsp; 40 Patterson St NE, Washington DC 20002 &nbsp;·&nbsp; Rooftop<br>
+  Wear Your College Colors &nbsp;·&nbsp; Day-of Contact: Jacquie (202) 391-4687
+</div>
+
+<script>
+  // ─────────────────────────────────────────────
+  // REPLACE THIS URL with your Google Apps Script
+  // Web App URL after completing the setup guide
+  // ─────────────────────────────────────────────
+  const SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+  let attendance = 'yes';
+  let allResponses = [];
+
+  // ── ATTENDANCE TOGGLE ──
+  function setAttendance(val) {
+    attendance = val;
+    document.getElementById('btn-yes').className     = 'toggle-btn' + (val==='yes'     ? ' active-yes'     : '');
+    document.getElementById('btn-scholar').className = 'toggle-btn' + (val==='scholar' ? ' active-scholar' : '');
+    document.getElementById('btn-no').className      = 'toggle-btn' + (val==='no'      ? ' active-no'      : '');
+    document.getElementById('declineNote').style.display   = val==='no'  ? 'block' : 'none';
+    document.getElementById('guestCountRow').style.display = val==='no'  ? 'none'  : 'grid';
+    document.getElementById('foodSection').style.display   = val==='yes' ? 'block' : 'none';
+    const btn = document.getElementById('submitBtn');
+    if (val==='yes')     btn.textContent = 'Count Me In!';
+    if (val==='scholar') btn.textContent = "Submit My Scholar's Info";
+    if (val==='no')      btn.textContent = 'Submit and Honor My Scholar';
+  }
+
+  // ── CLAIMED STATE ──
+  function getClaimed() {
+    const claimed = { entree:[], side:[], drink:[], dessert:[] };
+    allResponses.forEach(r => {
+      (r.entrees||[]).forEach(v => { if(!claimed.entree.includes(v))   claimed.entree.push(v);   });
+      (r.sides||[]).forEach(v   => { if(!claimed.side.includes(v))     claimed.side.push(v);     });
+      (r.drinks||[]).forEach(v  => { if(!claimed.drink.includes(v))    claimed.drink.push(v);    });
+      (r.desserts||[]).forEach(v=> { if(!claimed.dessert.includes(v))  claimed.dessert.push(v);  });
+    });
+    return claimed;
+  }
+
+  function applyClaimedState() {
+    const claimed = getClaimed();
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const map = { entree:'entree', side:'side', drink:'drink', dessert:'dessert' };
+      const key = map[cb.name];
+      if (key && !cb.checked && (claimed[key]||[]).includes(cb.value)) {
+        const item = cb.closest('.checkbox-item');
+        item.classList.add('claimed');
+        cb.disabled = true;
+        if (!item.querySelector('.claimed-badge')) {
+          const badge = document.createElement('span');
+          badge.className = 'claimed-badge';
+          badge.textContent = 'claimed';
+          item.appendChild(badge);
+        }
+      }
+    });
+  }
+
+  // ── VALIDATE ──
+  function validate() {
+    if (!document.getElementById('name').value.trim()) { alert('Please enter your name.'); return false; }
+    const e = document.getElementById('email').value.trim();
+    if (!e || !e.includes('@')) { alert('Please enter a valid email.'); return false; }
+    return true;
+  }
+
+  // ── SUBMIT ──
+  async function submitForm() {
+    if (!validate()) return;
+    if (SHEET_URL === 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+      alert('Setup not complete yet. Please follow the setup guide to connect this form to Google Sheets.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    document.getElementById('submittingMsg').style.display = 'block';
+
+    const getChecked = name => [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(el=>el.value);
+
+    const entry = {
+      attendance,
+      name:     document.getElementById('name').value.trim(),
+      email:    document.getElementById('email').value.trim(),
+      phone:    document.getElementById('phone').value.trim(),
+      adults:   attendance!=='no' ? document.getElementById('adults').value : '0',
+      kids:     attendance!=='no' ? document.getElementById('kids').value   : '0',
+      gradName: document.getElementById('gradName').value.trim(),
+      school:   document.getElementById('school').value.trim(),
+      major:    document.getElementById('major').value.trim(),
+      entrees:  attendance==='yes' ? [...getChecked('entree'),  document.getElementById('entreeOther').value.trim()].filter(Boolean)  : [],
+      sides:    attendance==='yes' ? [...getChecked('side'),    document.getElementById('sideOther').value.trim()].filter(Boolean)    : [],
+      drinks:   attendance==='yes' ? [...getChecked('drink'),   document.getElementById('drinkOther').value.trim()].filter(Boolean)   : [],
+      desserts: attendance==='yes' ? [...getChecked('dessert'), document.getElementById('dessertOther').value.trim()].filter(Boolean) : [],
+      notes:    attendance==='yes' ? document.getElementById('notes').value.trim() : '',
+    };
+
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entry)
+      });
+
+      allResponses.push(entry);
+
+      if (attendance==='no') {
+        document.getElementById('successTitle').textContent = 'Thank You for Honoring Your Scholar';
+        document.getElementById('successMsg').innerHTML = "We're so sorry you can't join us in person, but your scholar will still be recognized and celebrated. They are a part of this ensemble, always.";
+      } else if (attendance==='scholar') {
+        document.getElementById('successTitle').textContent = 'Your Scholar Is On the List!';
+        document.getElementById('successMsg').innerHTML = "We've got them! See you on <strong>Saturday, May 30 · 3-5 PM</strong> at 40 Patterson St NE.";
+      } else {
+        document.getElementById('successTitle').textContent = "The Stage Is Set. You're In!";
+        document.getElementById('successMsg').innerHTML = 'Thank you for signing up! We are so excited to celebrate with your family.<br><br><strong>Saturday, May 30 · 3-5 PM</strong><br>40 Patterson St NE · Rooftop<br><br>Wear your college gear and come ready to celebrate!';
+      }
+
+      document.getElementById('signupForm').style.display = 'none';
+      document.getElementById('successState').classList.add('visible');
+      applyClaimedState();
+      await loadResponses();
+
+    } catch(err) {
+      alert('Something went wrong submitting. Please try again.');
+      btn.disabled = false;
+      document.getElementById('submittingMsg').style.display = 'none';
+    }
+  }
+
+  function addAnother() {
+    document.getElementById('signupForm').style.display = 'block';
+    document.getElementById('successState').classList.remove('visible');
+    document.getElementById('signupForm')
+      .querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],textarea')
+      .forEach(el => el.value = '');
+    document.querySelectorAll('input[type="checkbox"]').forEach(el => { if(!el.disabled) el.checked = false; });
+    document.getElementById('adults').value = 1;
+    document.getElementById('kids').value = 0;
+    document.getElementById('submitBtn').disabled = false;
+    document.getElementById('submittingMsg').style.display = 'none';
+    setAttendance('yes');
+    applyClaimedState();
+  }
+
+  // ── LOAD RESPONSES FROM SHEET ──
+  async function loadResponses() {
+    if (SHEET_URL === 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') return;
+    try {
+      const res = await fetch(SHEET_URL + '?action=get');
+      const data = await res.json();
+      allResponses = data || [];
+      renderResponses();
+      applyClaimedState();
+    } catch(e) {
+      document.getElementById('responsesList').innerHTML = '';
+    }
+  }
+
+  // ── RENDER RESPONSES ──
+  function renderResponses() {
+    const section = document.getElementById('responsesSection');
+    const list    = document.getElementById('responsesList');
+    const badge   = document.getElementById('countBadge');
+
+    if (!allResponses.length) { section.style.display = 'none'; return; }
+    section.style.display = 'block';
+
+    const attending = allResponses.filter(r => r.attendance !== 'no');
+    const total = attending.reduce((s,r) => s + parseInt(r.adults||1) + parseInt(r.kids||0), 0);
+    badge.textContent = `${allResponses.length} Response${allResponses.length===1?'':'s'} · ${total} Attending`;
+
+    list.innerHTML = allResponses.map(r => {
+      const isDecline = r.attendance === 'no';
+      const isScholar = r.attendance === 'scholar';
+      const dishes = [
+        ...(r.entrees||[]),
+        ...(r.sides||[]),
+        ...(r.drinks||[]),
+        ...(r.desserts||[])
+      ];
+      const gradLine = r.gradName
+        ? `<strong>${r.gradName}</strong>${r.school ? ' at ' + r.school : ''}${r.major ? ' · ' + r.major : ''}`
+        : r.school ? 'Scholar at ' + r.school : '';
+      const statusTag = isDecline
+        ? `<span class="response-tag decline-tag">Unable to Attend</span>`
+        : isScholar
+        ? `<span class="response-tag" style="background:rgba(42,92,42,0.12);color:#2a5c2a;">Scholar Attending</span>`
+        : `<span class="response-tag" style="background:rgba(26,39,68,0.1);color:var(--navy);">Attending</span>`;
+
+      return `
+        <div class="response-card" style="${isDecline?'opacity:.7':''}">
+          <div>
+            <div class="response-name">${r.name} ${statusTag}</div>
+            <div class="response-details">
+              ${!isDecline ? parseInt(r.adults||0)+parseInt(r.kids||0) + ' guest(s)' : ''}
+              ${gradLine ? ((!isDecline?' · ':'') + gradLine) : ''}
+              ${r.notes ? `<br><span style="color:#8b1a1a;">${r.notes}</span>` : ''}
+            </div>
+            ${dishes.length ? `<div style="margin-top:8px">${dishes.map(d=>`<span class="response-tag">${d}</span>`).join('')}</div>` : ''}
+          </div>
+          <div style="font-size:11px;color:var(--muted);text-align:right;white-space:nowrap;padding-top:2px">${r.submittedAt||''}</div>
+        </div>`;
+    }).join('');
+  }
+
+  // Load on page open
+  loadResponses();
+</script>
+</body>
+</html>
